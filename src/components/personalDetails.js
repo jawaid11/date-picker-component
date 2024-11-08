@@ -89,41 +89,6 @@ console.log('formData', formData)
 
   return (
     <Grid container spacing={2} md={12} xs={12}>
-      <Grid item md={12} xs={12}>
-        <InputLabel id="wantedJobTitle">Wanted Job Title</InputLabel>
-        <TextField
-          inputProps={{ style: { fontSize: 14, fontWeight: 400 } }}
-          autoComplete="off"
-          fullWidth
-          name="wantedJobTitle"
-          type="text"
-          variant="outlined"
-          size="small"
-          id="wantedJobTitle"
-          placeholder="e.g. Teacher"
-          value={formData.wantedJobTitle}
-          onChange={handleChange}
-          error={!!errors.wantedJobTitle}
-          helperText={errors.wantedJobTitle}
-        />
-      </Grid>
-      <Grid item md={12} xs={12}>
-        <InputLabel id="summary">Summary</InputLabel>
-        <TextField
-          inputProps={{ style: { fontSize: 14, fontWeight: 400 } }}
-          autoComplete="off"
-          fullWidth
-          name="summary"
-          type="text"
-          variant="outlined"
-          size="small"
-          id="summary"
-          value={formData.summary}
-          onChange={handleChange}
-          error={!!errors.summary}
-          helperText={errors.summary}
-        />
-      </Grid>
       <Grid item md={6} xs={12}>
         <InputLabel id="fName">First Name</InputLabel>
         <TextField
@@ -256,6 +221,41 @@ console.log('formData', formData)
           onChange={handleChange}
           error={!!errors.postalCode}
           helperText={errors.postalCode}
+        />
+      </Grid>
+      <Grid item md={12} xs={12}>
+        <InputLabel id="wantedJobTitle">Wanted Job Title</InputLabel>
+        <TextField
+          inputProps={{ style: { fontSize: 14, fontWeight: 400 } }}
+          autoComplete="off"
+          fullWidth
+          name="wantedJobTitle"
+          type="text"
+          variant="outlined"
+          size="small"
+          id="wantedJobTitle"
+          placeholder="e.g. Teacher"
+          value={formData.wantedJobTitle}
+          onChange={handleChange}
+          error={!!errors.wantedJobTitle}
+          helperText={errors.wantedJobTitle}
+        />
+      </Grid>
+      <Grid item md={12} xs={12}>
+        <InputLabel id="summary">Summary</InputLabel>
+        <TextField
+          inputProps={{ style: { fontSize: 14, fontWeight: 400 } }}
+          autoComplete="off"
+          fullWidth
+          name="summary"
+          type="text"
+          variant="outlined"
+          size="small"
+          id="summary"
+          value={formData.summary}
+          onChange={handleChange}
+          error={!!errors.summary}
+          helperText={errors.summary}
         />
       </Grid>
       <Grid item md={12} xs={12}>

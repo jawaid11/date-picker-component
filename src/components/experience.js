@@ -76,7 +76,7 @@ const Experience = () => {
             </IconButton>
           )}
 
-          <Grid container spacing={2} md = {12} sx ={12}>
+          <Grid container spacing={2} md={12} sx={12}>
             <Grid container item md={6} xs={12}>
               <InputLabel id="jobTitle">Job Title / Designation</InputLabel>
               <TextField
@@ -168,13 +168,19 @@ const Experience = () => {
                 id="endDate"
               />
             </Grid>
-            <Grid container item md={12} xs={12} style={{display : 'flex', flexDirection :'column'}}>
+            <Grid
+              container
+              item
+              md={12}
+              xs={12}
+              style={{ display: "flex", flexDirection: "column" }}
+            >
               <InputLabel id="description">Description</InputLabel>
               <QuillEditor
                 value={detail.description || ""}
-                onChange={(content) =>
-                  handleChange(index, "description", content)
-                }
+                onChange={(content) => handleChange(0, "description", content)}
+                placeholder="Start writing your description..."
+                style={{ marginBottom: "20px" }}
               />
             </Grid>
           </Grid>

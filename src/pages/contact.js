@@ -4,7 +4,7 @@ import { Phone as PhoneIcon, Email as EmailIcon, LocationOn as LocationOnIcon } 
 
 const contact = () => {
   return (
-    <Box sx={{ padding: "16px", backgroundColor: "#f5f5f5", minHeight: "90.5vh" }}>
+    <Box sx={{ padding: "16px", backgroundColor: "#f5f5f5", minHeight: "100vh" }}>
       <Grid container spacing={1} justifyContent="center">
         <Grid item xs={12}>
           <Typography variant="h4" align="center" gutterBottom>

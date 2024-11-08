@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Typography, Box, Button, IconButton, Card, CardContent, CardActionArea, Grid } from '@mui/material';
+import { Container, Box, Button, IconButton, Card, CardContent, CardActionArea, Grid } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Template1 from '../assets/images/template1.png';
@@ -8,6 +8,9 @@ import Template3 from '../assets/images/template3.png';
 import Template4 from '../assets/images/template4.png';
 import Logo from '../assets/images/home.png';
 import { useNavigate } from 'react-router-dom';
+
+// Placeholder Image (you can also use a loading spinner or skeleton loader)
+// import PlaceholderImage from '../assets/images/placeholder.png';
 
 const templates = [
   { id: 1, name: 'Template 1', image: Template1 },
@@ -19,6 +22,7 @@ const templates = [
 const TemplateSelector = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedTemplate, setSelectedTemplate] = useState(null);
+  const [loading, setLoading] = useState(true); // To track image loading
   const navigate = useNavigate(); // Initialize useNavigate here
 
   const handlePrev = () => {
@@ -32,11 +36,15 @@ const TemplateSelector = () => {
   const handleSelectTemplate = () => {
     setSelectedTemplate(templates[currentIndex].id);
     console.log(`Selected Template: ${templates[currentIndex].name}`);
-    navigate('./form')
+    navigate('./form');
+  };
+
+  const handleImageLoad = () => {
+    setLoading(false); // Image has finished loading
   };
 
   return (
-    <Container sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center' }}>
+    <Container sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', backgroundColor: "f5f5f5" }}>
       <Grid container spacing={3} alignItems="center" justifyContent="center">
         {/* Left side (Carousel) */}
         <Grid item xs={12} md={6}>
@@ -57,10 +65,13 @@ const TemplateSelector = () => {
             >
               <CardActionArea onClick={handleSelectTemplate}>
                 <CardContent>
+                  {/* Image with Lazy Load and Placeholder */}
                   <img
-                    src={templates[currentIndex].image}
+                    src={loading ? templates[currentIndex].image : templates[currentIndex].image}
                     alt={templates[currentIndex].name}
                     style={{ width: '100%', height: 'auto', maxHeight: '70vh' }}
+                    loading="lazy" // Lazy load image
+                    onLoad={handleImageLoad} // Trigger the load event when the image is loaded
                   />
                   <Box
                     sx={{
@@ -88,7 +99,6 @@ const TemplateSelector = () => {
             </IconButton>
           </Box>
         </Grid>
-
         {/* Right side (Logo) */}
         <Grid item xs={12} md={6}>
           <Box display="flex" justifyContent="center" alignItems="center" height="100%">

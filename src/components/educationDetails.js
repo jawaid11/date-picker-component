@@ -19,6 +19,7 @@ import {
   updateEducationDetail,
   removeEducationDetail,
 } from "../redux/educationDetailsSlice";
+import QuillEditor from "./textEditor";
 
 const EducationDetails = () => {
   const dispatch = useDispatch();
@@ -158,17 +159,11 @@ const EducationDetails = () => {
             </Grid>
             <Grid container item md={12} xs={12}>
               <InputLabel id="description">Description</InputLabel>
-              <TextField
-                inputProps={{ style: { fontSize: 14, fontWeight: 400 } }}
-                fullWidth
-                name="description"
+              <QuillEditor
                 value={detail.description || ""}
-                onChange={(e) => handleChange(index, "description", e.target.value)}
-                type="text"
-                variant="outlined"
-                size="small"
-                id="description"
-                placeholder="Enter description"
+                onChange={(content) => handleChange(0, "description", content)}
+                placeholder="Start writing your description..."
+                style={{ marginBottom: "20px" }}
               />
             </Grid>
           </Grid>
